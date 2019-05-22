@@ -25,7 +25,15 @@ module.exports = {
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=100000'
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+            process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+            "css-loader",
+            "sass-loader"
+        ]
+    }
     ]
   },
   resolve: {
@@ -36,7 +44,7 @@ module.exports = {
     open: true,
     proxy: {
       '/api': 'http://localhost:8080'
-    }
+    },
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
