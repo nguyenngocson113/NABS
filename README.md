@@ -2,6 +2,10 @@
 # Install dependencies
 yarn (or npm install)
 
+# Setup Database
+
+run node datamongo.js to insert sample data
+
 # Start development server
 yarn dev (or npm run dev)
 

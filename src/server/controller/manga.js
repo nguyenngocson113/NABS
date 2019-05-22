@@ -2,7 +2,7 @@ const Manga = require('../models/manga');
 
 exports.getsManga = (req, res) => {
     /** continue apply pagination */
-    Manga.find({'data.removed': false}).limit(5)
+    Manga.find({'data.removed': false})
     .then((list) => {
         res.send(list);
     })
